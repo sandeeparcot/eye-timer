@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Allow app to run without being in a hardened sandbox -->
+    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <true/>
+
+    <!-- Allow outbound network (for future update checks if added) -->
+    <key>com.apple.security.network.client</key>
+    <true/>
+
+    <!-- Send user notifications -->
+    <key>com.apple.security.user-selected.read-write</key>
+    <true/>
+</dict>
+</plist>

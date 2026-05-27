@@ -1,0 +1,51 @@
+Eye Timer
+Copyright 2026 Sandeep Arcot
+
+This product is licensed under the Apache License, Version 2.0.
+You may obtain a copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+─────────────────────────────────────────────────────────────────
+
+TRADEMARK NOTICE
+
+"Eye Timer" and the 👁 logo are trademarks of Sandeep Arcot.
+
+This License does not grant permission to use the name "Eye Timer",
+the 👁 logo, or any associated branding in any fork, derivative
+work, or competing product without prior written permission from
+Sandeep Arcot.
+
+You are free to:
+  ✓  Use, modify, and redistribute the source code under Apache 2.0
+  ✓  Fork the repository for personal or commercial use
+  ✓  Reference "Eye Timer" to describe the origin of the code
+
+You may not:
+  ✗  Name any fork or derivative product "Eye Timer"
+  ✗  Use the 👁 logo in any competing or derivative product
+  ✗  Imply endorsement by Sandeep Arcot without written permission
+  ✗  Remove or alter this NOTICE or any copyright notices
+
+─────────────────────────────────────────────────────────────────
+
+THIRD-PARTY COMPONENTS
+
+This software makes use of the following open source libraries:
+
+  rumps — Ridiculously Uncomplicated macOS Python Statusbar apps
+  Copyright (c) 2020 Jared Suttles
+  Licensed under BSD 2-Clause License
+  https://github.com/jaredks/rumps
+
+  pyobjc-framework-Cocoa
+  Copyright (c) 2002-2024 Ronald Oussoren and contributors
+  Licensed under MIT License
+  https://pypi.org/project/pyobjc-framework-Cocoa/
+
+─────────────────────────────────────────────────────────────────
+
+Official app and website: eyetimer.app
+Source code:              github.com/YOURUSERNAME/eye-timer
+Support:                  hello@eyetimer.app

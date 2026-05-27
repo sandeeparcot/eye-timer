@@ -1,0 +1,37 @@
+# ── py2app build output ───────────────────────────────────────
+dist/
+build/
+
+# ── DMG & app bundle ──────────────────────────────────────────
+*.dmg
+*.app
+
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+.eggs/
+
+# ── Virtual environments ──────────────────────────────────────
+venv/
+.venv/
+env/
+
+# ── macOS ─────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ── Editor files ──────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Environment variables ─────────────────────────────────────
+.env
+.env.local
