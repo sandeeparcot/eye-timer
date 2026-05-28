@@ -125,7 +125,7 @@ The full pipeline (sign + DMG + notarise) is in `build.sh`. Fill in `DEVELOPER_I
 
 - **Single-file app.** Do not split into multiple modules without a strong reason.
 - **No comments unless the why is non-obvious.** The existing docstrings on `on_screen_lock` and `on_screen_unlock` are exceptions because the behaviour diverges from what the names suggest.
-- **Constants at module level** (`TIPS`, `WORK_SEC`, `REST_SEC`) so they're easy to find and override.
+- **`TIPS` is module-level**; `WORK_SEC` and `REST_SEC` are class attributes on `EyeTimerApp` — access them as `EyeTimerApp.WORK_SEC` / `EyeTimerApp.REST_SEC`.
 - **`_reset_state()`** resets `breaks` to 0 — this is intentional; it's a session reset, not just a cycle reset. Keep this behaviour when touching the reset flow.
 - **No `argv_emulation`** in py2app — do not change this.
 - **PyObjC selector syntax**: method names follow Objective-C style with trailing underscores in Python (`addObserver_selector_name_object_`). Do not rename these.
@@ -135,6 +135,25 @@ The full pipeline (sign + DMG + notarise) is in `build.sh`. Fill in `DEVELOPER_I
 ## Notifications
 
 Uses `rumps.notification(title, subtitle, message)`. macOS requires the user to grant notification permission on first run. The five rotating tips in `TIPS` cycle via `(self.breaks - 1) % len(TIPS)`.
+
+---
+
+## Tests
+
+```
+tests/
+└── test_eye_timer.py   # 69 tests, no macOS required
+```
+
+All macOS dependencies (`rumps`, `PyObjC`) are stubbed with pure-Python mocks so the suite runs anywhere.
+
+```bash
+python -m unittest discover tests/
+# or, if pytest is installed:
+python -m pytest tests/
+```
+
+Coverage includes: initial state, tick countdown, work→rest and rest→work transitions, tips cycling, start/pause, reset, toggle, screen lock/unlock, display formatting, `ScreenObserver` delegation, and observer registration.
 
 ---
 
