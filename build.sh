@@ -15,6 +15,21 @@
 
 set -e
 
+# ── Python version check ──────────────────────────────────────────────────────
+PYTHON=$(command -v python3.12 || command -v python3.11 || command -v python3.10 || command -v python3.9 || command -v python3)
+PY_VERSION=$("$PYTHON" -c 'import sys; print("%d.%d" % sys.version_info[:2])')
+PY_MINOR=$("$PYTHON" -c 'import sys; print(sys.version_info[1])')
+
+if [[ $("$PYTHON" -c 'import sys; print(sys.version_info[0])') -lt 3 || "$PY_MINOR" -lt 9 ]]; then
+  echo "❌  Python 3.9+ is required (found $PY_VERSION via $PYTHON)."
+  echo ""
+  echo "Fix options:"
+  echo "  conda:   conda create -n eyetimer python=3.11 -y && conda activate eyetimer"
+  echo "  brew:    brew install python@3.11"
+  exit 1
+fi
+echo "🐍  Using Python $PY_VERSION ($PYTHON)"
+
 APP_NAME="Eye Timer"
 VERSION="1.0.0"
 DIST_DIR="dist"
@@ -29,13 +44,13 @@ TEAM_ID=""        # e.g. "XXXXXXXXXX"
 # ─────────────────────────────────────────────────────────────────────────────
 
 echo "📦  Installing build dependencies..."
-pip3 install py2app rumps pyobjc-framework-Cocoa --quiet
+"$PYTHON" -m pip install py2app rumps pyobjc-framework-Cocoa --quiet
 
 echo ""
 echo "🔨  Building .app bundle..."
 # Clean previous build artefacts so py2app doesn't reuse stale files
 rm -rf build/ dist/
-python3 setup_app.py py2app
+"$PYTHON" setup_app.py py2app
 
 if [[ ! -d "$APP_PATH" ]]; then
   echo "❌  Build failed — $APP_PATH not found."
