@@ -19,10 +19,10 @@ OPTIONS = {
     "plist": {
         "CFBundleName":             APP_NAME,
         "CFBundleDisplayName":      APP_NAME,
-        "CFBundleIdentifier":       "com.yourdomain.eyetimer",
+        "CFBundleIdentifier":       "app.eyetimer.eyetimer",
         "CFBundleVersion":          VERSION,
         "CFBundleShortVersionString": VERSION,
-        "NSHumanReadableCopyright": "© 2026 Your Name",
+        "NSHumanReadableCopyright": "© 2026 Sandeep Arcot",
 
         # Hide from Dock — menu bar only
         "LSUIElement": True,
